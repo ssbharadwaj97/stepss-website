@@ -1047,6 +1047,7 @@
             padding: 6px 4px;
             z-index: 1100;
             flex-shrink: 0;
+            margin-left: auto;
         }
 
         .hamburger span {
@@ -1079,18 +1080,56 @@
 
         .mobile-menu.active { display: flex; }
 
-        .mobile-menu nav-item {
-            display: block;
+        .mob-menu-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 5%;
+            border-bottom: 1px solid rgba(201, 162, 39, 0.1);
         }
+
+        .mob-home-link {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: var(--gold-gradient-flat);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.12em;
+            text-decoration: none;
+        }
+
+        .mob-close {
+            background: none;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gold);
+            font-size: 1.1rem;
+            line-height: 1;
+            transition: background 0.2s ease;
+        }
+
+        .mob-close:hover { background: rgba(201, 162, 39, 0.1); }
 
         .mobile-menu a.mob-link {
             display: block;
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 1.9rem;
             font-weight: 700;
             color: var(--white);
             text-decoration: none;
-            padding: 0.85rem 0;
+            padding: 0.8rem 0;
             text-align: center;
             transition: color 0.25s ease;
             border-bottom: 1px solid rgba(201, 162, 39, 0.08);
@@ -1119,9 +1158,10 @@
 
         /* Tablet portrait */
         @media (max-width: 900px) {
+            .logo img        { height: 56px; }
             .section         { padding: 5rem 5%; }
             .cta-section     { padding: 5rem 5%; }
-            .hero            { padding: 7rem 5% 4rem; }
+            .hero            { padding: 6.5rem 5% 4rem; }
             .hero-content    { grid-template-columns: 1fr; }
             .hero-visual     { display: none; }
             .hero-headline   { font-size: 2.6rem; }
@@ -1138,6 +1178,8 @@
             .footer-inner    { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
             .footer-copy     { text-align: left; }
             .footer-links    { flex-wrap: wrap; gap: 1rem 1.5rem; }
+            .whatsapp-float  { bottom: 20px; right: 16px; width: 52px; height: 52px; }
+            .whatsapp-float svg { width: 26px; height: 26px; }
         }
 
         /* Large mobile */
@@ -1222,6 +1264,11 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu">
+        <div class="mob-menu-header">
+            <a class="mob-home-link" href="#" onclick="closeMobileMenu()">STEPSS</a>
+            <button class="mob-close" onclick="closeMobileMenu()" aria-label="Close menu">&#x2715;</button>
+        </div>
+        <a class="mob-link" href="#" onclick="closeMobileMenu()">Home</a>
         <a class="mob-link" href="#journey" onclick="closeMobileMenu()">How It Works</a>
         <a class="mob-link" href="#services" onclick="closeMobileMenu()">Services</a>
         <a class="mob-link" href="#career" onclick="closeMobileMenu()">Career Prep</a>
@@ -1267,8 +1314,8 @@
                         <div class="stat-desc">Universities</div>
                     </div>
                     <div class="stat-block">
-                        <div class="stat-num">3</div>
-                        <div class="stat-desc">Countries</div>
+                        <div class="stat-num">100+</div>
+                        <div class="stat-desc">Thesis Guided</div>
                     </div>
                 </div>
             </div>
